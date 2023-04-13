@@ -1,6 +1,7 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
-title: My Fourth Blog Post
+isDraft: false
+title: My Five Blog Post
+slug: wow/heyheyhey
 author: Astro Learner
 description: "This post will show up on its own!"
 image: 
@@ -9,4 +10,8 @@ image:
 pubDate: 2022-08-08
 tags: ["astro", "successes"]
 ---
-This post should show up with my other blog posts, because `Astro.glob()` is returning a list of all my posts in order to create my list.
+
+Hello World!
+
+コンテンツを別にslugをつけられるのは便利だ。
+コンテンツがファイルベースでソートできるようになると見栄えがいい
