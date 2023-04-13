@@ -1,5 +1,4 @@
 ---
-import Greeting from "../components/Greeting";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Home Paaaage";
@@ -8,7 +7,6 @@ const pageTitle = "Home Paaaage";
 <BaseLayout pageTitle={pageTitle}>
   <h1>Welcome to <span class="text-gradient">zcip! いい感じ？</span></h1>
   <h2>My awesome blog subtitle</h2>
-  <Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
 </BaseLayout>
 
 <style>
