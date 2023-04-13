@@ -10,6 +10,9 @@
 }
 
 html {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+
   background-color: #f1f5f9;
   /* TODO: font */
   font-family: sans-serif;
@@ -20,7 +23,13 @@ body {
   margin: 0 auto;
   width: 100%;
   max-width: 80ch;
-  padding: 1rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  flex: 1;
 }
 
 h1 {
@@ -32,6 +41,19 @@ li {
   list-style: none;
 }
 
-@media screen and (min-width: 636px) {
+
+.title {
+  margin-top: 1rem;
+  display: flex;
 }
 
+@media screen and (min-width: 636px) {
+  .title {
+    align-items: center;    
+    justify-content: center;
+  }
+}
+
+.hero {
+  margin-bottom: 5rem;
+}

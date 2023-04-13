@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
+import TitleSvg from '../components/TitleIcon.astro'
 
 const pageTitle = "zcip's Reading List"
 ---
@@ -14,8 +15,10 @@ const pageTitle = "zcip's Reading List"
     <title>{pageTitle}</title>
   </head>
   <body>
-    <div>
-      <h1>{pageTitle}</h1>
+    <div class="hero">
+      <div class="title">
+        <TitleSvg />
+      </div>
     </div>
     <slot />
     <Footer />
