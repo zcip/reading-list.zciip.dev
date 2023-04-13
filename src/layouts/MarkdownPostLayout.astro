@@ -3,20 +3,28 @@ import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
 type Props = {
-  frontmatter: CollectionEntry<"posts">['data']
-}
+  frontmatter: CollectionEntry<"posts">["data"];
+};
 
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
-  <p>{frontmatter.pubDate.toDateString()}</p>
-  <p><em>{frontmatter.description}</em></p>
+<BaseLayout>
+  {
+    import.meta.env.DEV && (
+      <div style={{ width: "100%", padding: "1rem 0.5rem", color: "red", background: "#666" }}>
+        この投稿はまだドラフトです
+      </div>
+    )
+  }
+  <p><em>{}</em></p>
   <slot />
 </BaseLayout>
 <style>
   a {
-    color: #00539F;
+    color: #00539f;
   }
-
+  ul {
+    list-style: disc;
+  }
 </style>
