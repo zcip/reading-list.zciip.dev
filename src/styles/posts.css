@@ -1,12 +1,12 @@
-body {
+/* body {
   padding: 0 1rem;
-}
+} */
 
-a {
+.md-post a {
   color: #00539f;
 }
 
-ul {
+.md-post ul {
   line-height: 1.65;
   margin-bottom: 2rem;
   /* display: flex;
@@ -14,16 +14,16 @@ ul {
   gap: 1rem; */
 }
 
-li {
+.md-post li {
   list-style: disc;
   /* font-size: 0.9rem; */
 }
 
-h2 {
+.md-post h2 {
   margin-bottom: 1rem;
 }
 
 /* 多段にするにはこれでいい */
-ul ul {
+.md-post ul ul {
   margin-left: 1.25rem;
 }

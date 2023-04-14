@@ -32,7 +32,9 @@ const formatedDate = format(frontmatter.pubDate, "Y年M月dd日");
     <h1>{frontmatter.title}</h1>
     <span class="date">{formatedDate}</span>
   </div>
-  <slot />
+  <div class="md-post">
+    <slot />
+  </div>
   <div style={{ marginTop: "2rem" }}>
     <a href="/">Back to Home</a>
   </div>
