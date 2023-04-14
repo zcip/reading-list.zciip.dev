@@ -13,42 +13,22 @@ const tags = ["React", "Next.js"];
 ---
 
 <BaseLayout>
-  <div class="header">
+  <div class="mb-8">
     私、{user} が興味を持ったWeb フロントエンド全般の読んだ記事について個人的にまとめるサイト。
     <ul>
       {tags.map((tag) => <li>{tag}</li>)}
     </ul>
   </div>
-  <ul class="list">
+  <ul class="flex flex-col gap-4">
     {
       publicPosts.map((post) => (
         <li class="post">
           <a href={`/posts/${post.slug}`}>
-            <span class="post-title">{post.data.title}</span>
+            <span class="text-2xl">{post.data.title}</span>
           </a>
-          <div class="post-description">{post.data.description}</div>
+          <div class="py-5">{post.data.description}</div>
         </li>
       ))
     }
   </ul>
 </BaseLayout>
-
-<style>
-  .header {
-    margin-bottom: 2rem;
-  }
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .post {
-    /* padding: 2rem 0; */
-  }
-  .post-title {
-    font-size: 1.5rem;
-  }
-  .post-description {
-    padding: 1.2rem 0;
-  }
-</style>
