@@ -1,6 +1,6 @@
 ---
 isDraft: true
-title: "2023/04/14 テスト, Islands Architecture うおおおおおお！"
+title: テスト, Islands Architecture うおおおおおお！
 slug: "2023-04-14"
 description: これは、テスト投稿です。これは、テスト投稿です。これは、テスト投稿です。 これは、テスト投稿です。 これは、テスト投稿です。 これは、テスト投稿です。 これは、テスト投稿です。
 pubDate: 2023-04-14
@@ -14,12 +14,12 @@ pubDate: 2023-04-14
 
 ### h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3
 
-- リスト1
-  - リスト1
-    - リスト1
-    - リスト1
+- リスト 1
+  - リスト 1
+    - リスト 1
+    - リスト 1
 
 ## TODO
 
-- Twitterの埋め込み
+- Twitter の埋め込み
 - 見た目をかっこよくする

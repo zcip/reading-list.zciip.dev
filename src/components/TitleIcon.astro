@@ -1,13 +1,16 @@
 ---
 type Props = {
+  class?: string | undefined | null;
   scale?: number;
 };
+const className = Astro.props.class;
 const scale = Astro.props.scale || 2;
 const width = 108 * scale;
 const height = 10 * scale;
 ---
 
 <svg
+  class={className}
   width={`${width}`}
   height={`${height}`}
   viewBox={`0 0 ${width} ${height}`}

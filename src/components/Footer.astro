@@ -3,32 +3,20 @@ import TitleIcon from "./TitleIcon.astro";
 ---
 
 <style>
-  footer {
-    height: 10vw;
-    min-width: 100%;
-  }
-  .footer-area {
-    max-width: var(--main-width);
-  }
-  .sns a {
+  .footer-links a {
     transition: 0.15s color cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  @media screen and (min-width: 640px) {
-    .footer-area {
-      padding: 0 1.5rem;
-    }
   }
 </style>
 
-<footer>
-  <div class="footer-area mx-auto py-4">
+<footer class="min-h-[10vw]">
+  <div class="max-w-4xl mx-auto py-4">
     <div class="grid sm:grid-cols-12 gap-8 border-t border-neutral-200 py-8">
       <div class="sm:col-span-12 md:col-span-6">
         <a href="/">
           <TitleIcon scale={2} />
         </a>
       </div>
-      <div class="sns sm:col-span-6 md:col-span-3 lg:col-span-2">
+      <div class="footer-links sm:col-span-6 md:col-span-3 lg:col-span-2">
         <p class="mb-2 font-medium text-neutral-600">Links</p>
         <ul class="text-sm">
           <li class="mb-2">
@@ -45,7 +33,7 @@ import TitleIcon from "./TitleIcon.astro";
           </li>
         </ul>
       </div>
-      <div class="sns sm:col-span-6 md:col-span-3 lg:col-span-2">
+      <div class="footer-links sm:col-span-6 md:col-span-3 lg:col-span-2">
         <p class="mb-2 font-medium text-neutral-600">Meta</p>
         <ul class="text-sm">
           <li class="mb-2">
