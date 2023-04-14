@@ -1,9 +1,9 @@
 ---
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
-import TitleSvg from '../components/TitleIcon.astro'
+import TitleSvg from "../components/TitleIcon.astro";
 
-const pageTitle = "zcip's Reading List"
+const pageTitle = "zcip's Reading List";
 ---
 
 <html lang="ja">
@@ -17,10 +17,12 @@ const pageTitle = "zcip's Reading List"
   <body>
     <div class="hero">
       <div class="title">
-        <TitleSvg />
+        <TitleSvg scale={6} />
       </div>
     </div>
-    <slot />
+    <main class="main">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

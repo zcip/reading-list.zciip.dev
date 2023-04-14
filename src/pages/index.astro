@@ -3,18 +3,30 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await getCollection("posts");
 
-const publicPosts = allPosts.filter(post => {
-  return !(post.data.isDraft && import.meta.env.PROD)
-})
+const publicPosts = allPosts.filter((post) => {
+  return !(post.data.isDraft && import.meta.env.PROD);
+});
 
+const user= 'zcip'
+
+const tags = ["React", "Next.js"]
 ---
 
 <BaseLayout>
+  <div class="header">
+    私、{user} が興味を持ったWeb フロントエンド全般の読んだ記事について個人的にまとめるサイト。
+    <ul>
+      {tags.map(tag => <li>{tag}</li>)}
+    </ul>
+  </div>
   <ul class="list">
     {
       publicPosts.map((post) => (
-        <li>
-          <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+        <li class="post">
+          <a href={`/posts/${post.slug}`}>
+            <span class="post-title">{post.data.title}</span>
+          </a>
+          <div class="post-description">{post.data.description}</div>
         </li>
       ))
     }
@@ -22,11 +34,21 @@ const publicPosts = allPosts.filter(post => {
 </BaseLayout>
 
 <style>
-
+  .header {
+    margin-bottom: 2rem;
+  }
   .list {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
-
+  .post {
+    /* padding: 2rem 0; */
+  }
+  .post-title {
+    font-size: 1.5rem;
+  }
+  .post-description {
+    padding: 1.2rem 0;
+  }
 </style>

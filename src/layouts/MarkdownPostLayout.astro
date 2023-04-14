@@ -16,7 +16,14 @@ const formatedDate = format(frontmatter.pubDate, "Y年M月dd日");
 <BaseLayout>
   {
     isDraft && (
-      <div style={{ width: "100%", padding: "1rem 0.5rem", color: "red", background: "#666" }}>
+      <div
+        style={{
+          width: "100%",
+          padding: "1rem 0.5rem",
+          color: "red",
+          background: "#666",
+        }}
+      >
         この投稿はまだドラフトです
       </div>
     )
@@ -26,7 +33,15 @@ const formatedDate = format(frontmatter.pubDate, "Y年M月dd日");
     <span class="date">{formatedDate}</span>
   </div>
   <slot />
-  <div style={{marginTop: '2rem'}}>
-    <a href="/">Back to Home</a> 
+  <div style={{ marginTop: "2rem" }}>
+    <a href="/">Back to Home</a>
   </div>
 </BaseLayout>
+<style>
+  .post-header {
+    margin-bottom: 2rem;
+  }
+  .date {
+    color: #3e3e3e;
+  }
+</style>

@@ -1,15 +1,83 @@
 ---
+import TitleIcon from "./TitleIcon.astro";
 ---
 
 <style>
   footer {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
+    height: 10vw;
+    min-width: 100%;
+  }
+  .footer-area {
+    max-width: var(--main-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .links-area {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgb(229 229 229);
+  }
+  .copy-area {
+    padding: 1rem 0;
+  }
+  .copy {
+    color: rgb(82 82 82);
+    font-size: 0.875rem;
+    margin-left: 1rem;
+  }
+  @media screen and (min-width: 640px) {
+    .footer-area {
+      padding: 0 1.5rem;
+    }
+    .links-area {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+    .logo {
+      grid-column: span 12 / span 12;
+    }
+    .sns {
+      grid-column: span 6;
+    }
+    .copy-area {
+      padding: 2rem 0;
+      border-top: 1px solid rgb(229 229 229);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .logo {
+      grid-column: span 3 / span 3;
+    }
   }
 </style>
 
 <footer>
-  <a href="https://twitter.com/zcip">Twitter</a>
-  <a href="https://github.com/zcip">GitHub</a>
+  <div class="footer-area">
+    <div class="links-area">
+      <div class="logo">
+        <a href="/">
+          <TitleIcon scale={1.8} />
+        </a>
+      </div>
+      <div class="sns">
+        <p class="">SNS</p>
+        <ul>
+          <li>
+            <a href="https://twitter.com/zcip">Twitter</a>
+          </li>
+          <li>
+            <a href="https://github.com/zcip">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy-area">
+      <div class="copy">© 2023 zcip's reading list. All rights reserved.</div>
+    </div>
+  </div>
 </footer>
