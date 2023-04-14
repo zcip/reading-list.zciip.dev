@@ -1,14 +1,16 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
-import '../styles/posts.css'
+import "../styles/posts.css";
+import { format } from "date-fns";
 
 type Props = {
   frontmatter: CollectionEntry<"posts">["data"];
 };
 
 const { frontmatter } = Astro.props;
-const isDraft = import.meta.env.DEV && frontmatter.isDraft
+const isDraft = import.meta.env.DEV && frontmatter.isDraft;
+const formatedDate = format(frontmatter.pubDate, "Y年M月dd日");
 ---
 
 <BaseLayout>
@@ -19,6 +21,10 @@ const isDraft = import.meta.env.DEV && frontmatter.isDraft
       </div>
     )
   }
+  <div class="post-header">
+    <h1>{frontmatter.title}</h1>
+    <span class="date">{formatedDate}</span>
+  </div>
   <slot />
   <div style={{marginTop: '2rem'}}>
     <a href="/">Back to Home</a> 
