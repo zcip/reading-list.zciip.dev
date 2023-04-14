@@ -7,11 +7,16 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "fmt": "prettier --write . --cache"
   },
   "dependencies": {
     "@astrojs/rss": "^2.3.2",
     "astro": "^2.2.3",
     "date-fns": "^2.29.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7",
+    "prettier-plugin-astro": "^0.8.0"
   }
 }

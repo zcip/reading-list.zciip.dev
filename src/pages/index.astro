@@ -7,16 +7,16 @@ const publicPosts = allPosts.filter((post) => {
   return !(post.data.isDraft && import.meta.env.PROD);
 });
 
-const user= 'zcip'
+const user = "zcip";
 
-const tags = ["React", "Next.js"]
+const tags = ["React", "Next.js"];
 ---
 
 <BaseLayout>
   <div class="header">
     私、{user} が興味を持ったWeb フロントエンド全般の読んだ記事について個人的にまとめるサイト。
     <ul>
-      {tags.map(tag => <li>{tag}</li>)}
+      {tags.map((tag) => <li>{tag}</li>)}
     </ul>
   </div>
   <ul class="list">
