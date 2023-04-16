@@ -14,12 +14,17 @@
   gap: 1rem; */
 }
 
+.md-post > ul > li {
+  margin-bottom: 2rem;
+}
+
 .md-post li {
   list-style: disc;
   /* font-size: 0.9rem; */
 }
 
 .md-post h2 {
+  font-size: 1.75rem;
   margin-bottom: 1rem;
 }
 
