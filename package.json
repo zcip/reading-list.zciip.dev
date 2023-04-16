@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "new": "node scripts/create-content.mjs",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
