@@ -25,5 +25,6 @@
 
 /* 多段にするにはこれでいい */
 .md-post ul ul {
+  margin-bottom: 0;
   margin-left: 1.25rem;
 }
