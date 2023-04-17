@@ -40,3 +40,8 @@
   margin-bottom: 0;
   margin-left: 1.25rem;
 }
+
+.md-post pre {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
