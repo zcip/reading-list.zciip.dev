@@ -1,3 +1,4 @@
+// @ts-check
 import fs from "node:fs/promises";
 import { format } from "date-fns";
 
