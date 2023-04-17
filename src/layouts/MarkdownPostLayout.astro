@@ -11,7 +11,6 @@ type Props = {
 const { frontmatter } = Astro.props;
 const isDraft = import.meta.env.DEV && frontmatter.isDraft;
 const formatedDate = format(frontmatter.pubDate, "Y年M月dd日");
-const title = format(frontmatter.pubDate, "Y/M/dd") + frontmatter.title;
 ---
 
 <BaseLayout>
@@ -29,22 +28,19 @@ const title = format(frontmatter.pubDate, "Y/M/dd") + frontmatter.title;
       </div>
     )
   }
-  <div class="post-header">
-    <h1>{title}</h1>
-    <span class="date">{formatedDate}</span>
-  </div>
-  <div class="md-post">
+  <article class="md-post">
+    <header class="mb-8">
+      <h1
+        class="text-5xl grid font-extrabold tracking-tighter leading-tight bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500 text-transparent break-words"
+      >
+        <span class="italic">{format(frontmatter.pubDate, "Y/M/dd")}</span>
+        <span class="break-words">{frontmatter.title}</span>
+      </h1>
+      <span class="text-neutral-700">{formatedDate}</span>
+    </header>
     <slot />
-  </div>
-  <div class="mt-8">
+  </article>
+  <div class="my-8">
     <a href="/">Back to Home</a>
   </div>
 </BaseLayout>
-<style>
-  .post-header {
-    margin-bottom: 2rem;
-  }
-  .date {
-    color: #3e3e3e;
-  }
-</style>
