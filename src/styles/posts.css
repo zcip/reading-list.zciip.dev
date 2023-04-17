@@ -57,3 +57,9 @@
   padding: 1rem;
   margin-bottom: 2rem;
 }
+
+.md-post li code {
+  background-color: rgb(229 229 229);
+  padding: 0.25rem;
+  border-radius: 4px;
+}
