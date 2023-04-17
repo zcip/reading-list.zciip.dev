@@ -36,7 +36,16 @@ const formatedDate = format(frontmatter.pubDate, "Y年M月dd日");
         <span class="italic">{format(frontmatter.pubDate, "Y/M/dd")}</span>
         <span class="break-words">{frontmatter.title}</span>
       </h1>
-      <span class="text-neutral-700">{formatedDate}</span>
+      <div class="text-neutral-700 mb-4">{formatedDate}</div>
+      <ul class="flex gap-1 flex-wrap pb-4 border-b">
+        {
+          frontmatter.tags.map((tag) => (
+            <li class="block shadow-sm p-2 text-neutral-500 bg-neutral-200 rounded-lg">
+              #{tag}
+            </li>
+          ))
+        }
+      </ul>
     </header>
     <slot />
   </article>
