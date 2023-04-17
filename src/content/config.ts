@@ -9,6 +9,7 @@ const postsCollection = defineCollection({
     title: z.string(),
     pubDate: z.date(),
     description: z.string(),
+    tags: z.array(z.string()),
     // TODO: OG imageを設定する
     // image: z.object({
     //   url: z.string(),

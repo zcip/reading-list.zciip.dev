@@ -4,6 +4,7 @@ title: Astro, Islands Architecture
 slug: "2023-04-13"
 description: Astro と Islands Architecture patterns.devのレンダリングパターンについて
 pubDate: 2023-04-13
+tags: ["astro", "patterns.dev", "vim"]
 ---
 
 ## 読んだ

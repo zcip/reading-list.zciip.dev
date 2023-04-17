@@ -8,32 +8,57 @@ const publicPosts = allPosts.filter((post) => {
   return !(post.data.isDraft && import.meta.env.PROD);
 });
 
-const user = "zcip";
+const allTags = publicPosts.map((post) => post.data.tags).flat();
+const tags = Object.entries(
+  allTags.reduce((count: { [key: string]: number }, item: string) => {
+    count[item] = (count[item] || 0) + 1;
+    return count;
+  }, {})
+)
+  .sort((a, b) => b[1] - a[1])
+  .map(([item, _]) => item);
 
-const tags = ["React", "Next.js"];
+const user = "zcip";
 ---
 
 <BaseLayout>
-  <header class="mb-8">
-    {user} が興味を持ったWeb フロントエンド全般の読んだ記事について個人的にまとめるサイト。
-    <ul>
-      {tags.map((tag) => <li>{tag}</li>)}
+  <header
+    class="my-8 bg-neutral-100 p-12 rounded-lg border-transparent border shadow-lg"
+  >
+    <p class="pb-8 text-neutral-950">
+      {user} が興味を持ったWeb フロントエンド全般の読んだ記事について個人的にまとめるサイト
+    </p>
+    <ul class="flex gap-1 flex-wrap">
+      {
+        tags.map((tag) => (
+          <li class="block shadow-sm p-2 text-neutral-500 bg-neutral-200 rounded-lg">
+            #{tag}
+          </li>
+        ))
+      }
     </ul>
   </header>
-  <section>
-    <ul class="flex flex-col gap-16">
+  <section class="px-2">
+    <ul class="flex flex-col gap-4">
       {
         publicPosts.map((post) => (
-          <li class="grid gap-2">
+          <li class="grid gap-3 py-4 pl-8 pr-4 shadow-lg">
             <a class="inline-flex" href={`/posts/${post.slug}`}>
-              <div class="title relative ml-4 font-extrabold tracking-tighter leading-tight bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500 text-transparent">
+              <div class="title relative font-extrabold tracking-tighter leading-tight bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500 text-transparent">
                 <span class="italic text-2xl block sm:inline">
                   {format(post.data.pubDate, "Y/M/dd")}
                 </span>
                 <span class="text-2xl">{post.data.title}</span>
               </div>
             </a>
-            <div class="text-neutral-700">{post.data.description}</div>
+            <div class="text-neutral-900 pb-3">{post.data.description}</div>
+            <ul class="flex gap-2">
+              {post.data.tags?.map((tag) => (
+                <li class="block shadow-sm text-neutral-500 p-2 bg-neutral-200 rounded-lg">
+                  #{tag}
+                </li>
+              ))}
+            </ul>
           </li>
         ))
       }
