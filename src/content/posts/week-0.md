@@ -24,3 +24,17 @@ tags: ["react"]
 
 - Twitter の埋め込み
 - 見た目をかっこよくする
+
+
+## シンタックスハイライト
+
+```js
+import { defineConfig } from 'astro/config';
+import customTheme from './my-shiki-theme.json';
+
+export default defineConfig({
+  markdown: {
+    shikiConfig: { theme: customTheme },
+  },
+});
+```
