@@ -15,7 +15,7 @@ const tags = ["React", "Next.js"];
 
 <BaseLayout>
   <div class="mb-8">
-    私、{user} が興味を持ったWeb フロントエンド全般の読んだ記事について個人的にまとめるサイト。
+    {user} が興味を持ったWeb フロントエンド全般の読んだ記事について個人的にまとめるサイト。
     <ul>
       {tags.map((tag) => <li>{tag}</li>)}
     </ul>
@@ -25,7 +25,7 @@ const tags = ["React", "Next.js"];
       publicPosts.map((post) => (
         <li class="post">
           <a href={`/posts/${post.slug}`}>
-            <span class="text-2xl">
+            <span class="title text-2xl font-extrabold tracking-tighter leading-tight bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500 text-transparent">
               {format(post.data.pubDate, "Y/M/dd") + post.data.title}
             </span>
           </a>
@@ -35,3 +35,20 @@ const tags = ["React", "Next.js"];
     }
   </ul>
 </BaseLayout>
+<style>
+  .title:hover {
+    background-size: 150% 150%;
+    animation: bg-scroll 1.5s ease infinite;
+  }
+  @keyframes bg-scroll {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
