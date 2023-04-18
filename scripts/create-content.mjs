@@ -4,13 +4,13 @@ import { format } from "date-fns";
 
 const dateStr = format(new Date(), "yyyy-MM-dd");
 
-const template = `
----
+const template = `---
 isDraft: true
 title: TODO
 slug: "${dateStr}"
 description: TODO
 pubDate: ${dateStr}
+tags: ["web"]
 ---
 
 ## 読んだ記事
