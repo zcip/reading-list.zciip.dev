@@ -1,8 +1,8 @@
 import type { AstroGlobal } from "astro";
-import { getCollection } from "astro:content";
+import { getPublishedPosts } from "./getPublishedPosts";
 
 export async function getPrevAndNext(Astro: Readonly<AstroGlobal>) {
-  const posts = await getCollection("posts");
+  const posts = await getPublishedPosts();
   const links = posts.map((post) => ({
     text: post.data.title,
     pubDate: post.data.pubDate,
