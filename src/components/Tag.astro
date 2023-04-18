@@ -1,0 +1,8 @@
+---
+export type Props = { tag: string };
+const { tag } = Astro.props;
+---
+
+<li class="block shadow-sm p-2 text-neutral-600 bg-neutral-200 rounded-lg">
+  #{tag}
+</li>
