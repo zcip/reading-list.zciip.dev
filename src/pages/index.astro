@@ -2,18 +2,24 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { format } from "date-fns";
 import { getPublishedPosts } from "../lib/getPublishedPosts";
+import type { CollectionEntry } from "astro:content";
 
 const publicPosts = await getPublishedPosts();
 
-const allTags = publicPosts.map((post) => post.data.tags).flat();
-const tags = Object.entries(
-  allTags.reduce((count: { [key: string]: number }, item: string) => {
-    count[item] = (count[item] || 0) + 1;
-    return count;
-  }, {})
-)
-  .sort((a, b) => b[1] - a[1])
-  .map(([item, _]) => item);
+function getSortedUniqTag(posts: CollectionEntry<"posts">[]) {
+  const allTags = posts.map((post) => post.data.tags).flat();
+  const tags = Object.entries(
+    allTags.reduce((count: { [key: string]: number }, item: string) => {
+      count[item] = (count[item] || 0) + 1;
+      return count;
+    }, {})
+  )
+    .sort((a, b) => b[1] - a[1])
+    .map(([item, _]) => item);
+  return tags;
+}
+
+const tags = getSortedUniqTag(publicPosts);
 
 const user = "zcip";
 ---
