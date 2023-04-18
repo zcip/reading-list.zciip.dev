@@ -1,12 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { format } from "date-fns";
-const allPosts = await getCollection("posts");
+import { getPublishedPosts } from "../lib/getPublishedPosts";
 
-const publicPosts = allPosts.filter((post) => {
-  return !(post.data.isDraft && import.meta.env.PROD);
-});
+const publicPosts = await getPublishedPosts();
 
 const allTags = publicPosts.map((post) => post.data.tags).flat();
 const tags = Object.entries(
