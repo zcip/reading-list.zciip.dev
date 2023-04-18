@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "eslint": "eslint . --fix",
     "fmt": "prettier --write . --cache"
   },
   "dependencies": {
