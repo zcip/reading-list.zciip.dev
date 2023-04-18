@@ -14,7 +14,9 @@ const siteUrl = new URL(Astro.url.pathname, Astro.site);
         background: "#666",
       }}
     >
-      <a href={siteUrl}>{siteUrl}</a>
+      <a href={siteUrl} target="_blank">
+        {siteUrl}
+      </a>
     </div>
   )
 }
