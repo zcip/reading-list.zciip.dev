@@ -22,23 +22,7 @@ const user = "zcip";
 ---
 
 <BaseLayout>
-  <header
-    class="my-8 bg-neutral-100 p-12 rounded-lg border-transparent border shadow-lg"
-  >
-    <p class="pb-8 text-neutral-950">
-      {user} が興味を持ったWeb フロントエンド全般の読んだ記事について個人的にまとめるサイト
-    </p>
-    <ul class="flex gap-1 flex-wrap">
-      {
-        tags.map((tag) => (
-          <li class="block shadow-sm p-2 text-neutral-500 bg-neutral-200 rounded-lg">
-            #{tag}
-          </li>
-        ))
-      }
-    </ul>
-  </header>
-  <section class="px-2">
+  <section class="px-2 pt-4">
     <ul class="flex flex-col gap-4">
       {
         publicPosts.map((post) => (
@@ -64,6 +48,22 @@ const user = "zcip";
       }
     </ul>
   </section>
+  <aside
+    class="bg-neutral-100 p-12 rounded-lg border-transparent border shadow-lg"
+  >
+    <p class="pb-8 text-neutral-950">
+      {user} が興味を持ったWeb フロントエンド全般の読んだ記事について個人的にまとめるサイト
+    </p>
+    <ul class="flex gap-1 flex-wrap">
+      {
+        tags.map((tag) => (
+          <li class="block shadow-sm p-2 text-neutral-500 bg-neutral-200 rounded-lg">
+            #{tag}
+          </li>
+        ))
+      }
+    </ul>
+  </aside>
 </BaseLayout>
 <style>
   .title:hover {
