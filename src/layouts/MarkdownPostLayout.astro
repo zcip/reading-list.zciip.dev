@@ -74,7 +74,7 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
     {
       previous && (
         <a
-          class="py-4 shadow rounded-lg col-span-5 text-center grid place-content-center"
+          class="anime-button py-3 shadow rounded-lg col-span-5 text-center grid place-content-center"
           href={previous.link}
         >
           <time>{format(previous.pubDate, "yyyy/MM/dd")}</time>
@@ -83,13 +83,13 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
       )
     }
     <a
-      class="py-4 shadow rounded-lg col-start-6 col-span-2 grid place-content-center text-sm"
+      class="py-3 shadow rounded-lg col-start-6 col-span-2 grid place-content-center text-sm"
       href="/">一覧へ</a
     >
     {
       next && (
         <a
-          class="py-4 shadow rounded-lg col-start-8 col-span-5 text-center grid place-content-center"
+          class="anime-button py-3 shadow rounded-lg col-start-8 col-span-5 text-center grid place-content-center"
           href={next.link}
         >
           <time>{format(next.pubDate, "yyyy/MM/dd")}</time>
@@ -99,3 +99,45 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
     }
   </aside>
 </BaseLayout>
+<style>
+  .anime-button {
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    position: relative;
+    background-color: white;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .anime-button:before {
+    --size: -4px;
+    content: "";
+    position: absolute;
+    top: var(--size);
+    left: var(--size);
+    right: var(--size);
+    bottom: var(--size);
+    background-image: linear-gradient(to right, #ec4899, #3b82f6);
+    background-size: 200% 200%;
+    border-radius: 4px;
+    z-index: -1;
+    transform: scale(0, 1);
+    transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .anime-button:hover::before {
+    animation: bg-scroll 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    transform: scale(1, 1);
+  }
+
+  @keyframes bg-scroll {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
