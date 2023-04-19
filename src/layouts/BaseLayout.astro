@@ -5,6 +5,12 @@ import TitleSvg from "../components/TitleIcon.astro";
 import DevInfo from "../components/DevInfo.astro";
 
 const pageTitle = "zcip's Reading List";
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const description = "zcipが読んだ記事をまとめます";
+
+const ogImageSrcPath = "/images/og.jpg";
+const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
 ---
 
 <html lang="ja">
@@ -14,6 +20,22 @@ const pageTitle = "zcip's Reading List";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <slot name="og:twitter">
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@zcip" />
+    </slot>
+    <slot name="seo">
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={canonicalURL} />
+      <meta property="og:image" content={canonicalImageSrc} />
+      <meta
+        name="description"
+        property="og:description"
+        content={description}
+      />
+      <meta property="og:site_name" content={pageTitle} />
+    </slot>
   </head>
   <body>
     <header

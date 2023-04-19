@@ -6,7 +6,7 @@ import type { CollectionEntry } from "astro:content";
 import "../styles/posts.css";
 import Tag from "../components/Tag.astro";
 
-type Props = {
+export type Props = {
   frontmatter: CollectionEntry<"posts">["data"];
 };
 
@@ -15,9 +15,32 @@ const { previous, next } = await getPrevAndNext(Astro);
 const { frontmatter } = Astro.props;
 const isDraft = import.meta.env.DEV && frontmatter.isDraft;
 const formatedDate = format(frontmatter.pubDate, "Y年M月dd日");
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const title = `${format(frontmatter.pubDate, "Y/M/dd")} ${frontmatter.title}`;
+
+// TODO: 動的生成
+const ogImageSrcPath = "/images/og.jpg";
+const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
 ---
 
 <BaseLayout>
+  <Fragment slot="seo">
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={canonicalImageSrc} />
+    <meta
+      name="description"
+      property="og:description"
+      content={frontmatter.description}
+    />
+    <meta property="og:site_name" content={title} />
+    <!-- <meta name="twitter:title" content={title} /> -->
+    <!-- <meta name="twitter:description" content={frontmatter.description} /> -->
+    <!-- <meta name="twitter:image" content={canonicalImageSrc} /> -->
+  </Fragment>
   {
     isDraft && (
       <div
