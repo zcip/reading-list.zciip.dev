@@ -74,26 +74,60 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
     {
       previous && (
         <a
-          class="anime-button py-3 shadow rounded-lg col-span-5 text-center grid place-content-center"
+          class="anime-button py-3 px-1 shadow rounded-lg col-span-12 sm:col-span-5 text-center grid place-content-center grid-cols-12 items-center"
           href={previous.link}
         >
-          <time>{format(previous.pubDate, "yyyy/MM/dd")}</time>
-          {previous.text}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-chevron-left col-span-1"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M15 6l-6 6l6 6" />
+          </svg>
+          <div class="col-span-10 sm:col-span-11 px-2">
+            <div class="text-sm text-neutral-500">
+              {format(previous.pubDate, "yyyy/MM/dd")}
+            </div>
+            <div class="text-sm text-neutral-900">{previous.text}</div>
+          </div>
         </a>
       )
     }
-    <a
-      class="py-3 shadow rounded-lg col-start-6 col-span-2 grid place-content-center text-sm"
-      href="/">一覧へ</a
-    >
     {
       next && (
         <a
-          class="anime-button py-3 shadow rounded-lg col-start-8 col-span-5 text-center grid place-content-center"
+          class="anime-button py-3 shadow rounded-lg col-span-12 sm:col-start-8 sm:col-span-5 text-center grid place-content-center grid-cols-12 items-center"
           href={next.link}
         >
-          <time>{format(next.pubDate, "yyyy/MM/dd")}</time>
-          {next.text}
+          <div class="px-2 col-start-2 col-span-10 sm:col-span-11">
+            <div class="text-sm text-neutral-500">
+              {format(next.pubDate, "yyyy/MM/dd")}
+            </div>
+            <div class="text-sm text-neutral-900">{next.text}</div>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-chevron-right col-span-1"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 6l6 6l-6 6" />
+          </svg>
         </a>
       )
     }
