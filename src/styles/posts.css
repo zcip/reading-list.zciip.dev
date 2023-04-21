@@ -13,14 +13,21 @@
 .md-post ul {
   line-height: 1.65;
   margin-bottom: 2rem;
-}
-
-.md-post > ul > li {
-  margin-bottom: 2rem;
+  margin-left: 1.25rem;
 }
 
 .md-post li {
   list-style: none;
+}
+
+.md-post ul li {
+  position: relative;
+}
+
+.md-post ul li::before {
+  content: "-";
+  left: -1rem;
+  position: absolute;
 }
 
 .md-post h2 {
