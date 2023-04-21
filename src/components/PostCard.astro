@@ -13,7 +13,7 @@ const { post } = Astro.props;
 <li class="grid gap-3 py-4 pl-8 pr-4 shadow-lg">
   <a class="inline-flex" href={`/posts/${post.slug}`}>
     <div
-      class="title relative font-extrabold tracking-tighter leading-tight bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500 text-transparent"
+      class="post-card-title relative font-extrabold tracking-tighter leading-tight bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500 text-transparent"
     >
       <span class="italic text-2xl block sm:inline">
         {format(post.data.pubDate, "Y/M/dd")}
@@ -30,11 +30,11 @@ const { post } = Astro.props;
 </li>
 
 <style>
-  .title:hover {
+  .post-card-title:hover {
     background-size: 400% 400%;
-    animation: bg-scroll 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation: bg-position-lrl 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-  .title:before {
+  .post-card-title:before {
     content: "";
     width: 1rem;
     height: 1rem;
@@ -47,19 +47,7 @@ const { post } = Astro.props;
     left: -1.5rem;
     transition: left 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-  .title:hover::before {
+  .post-card-title:hover::before {
     left: 100%;
-  }
-
-  @keyframes bg-scroll {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
   }
 </style>
