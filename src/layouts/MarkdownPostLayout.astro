@@ -23,7 +23,7 @@ const title = `${format(frontmatter.pubDate, "Y/M/dd")} ${frontmatter.title}`;
 const ogImageSrcPath = "/images/og.jpg";
 const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
 
-const tweetUrl = `https://twitter.com/share?url=${canonicalURL}&text=${encodeURIComponent(
+const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${encodeURIComponent(
   title
 )}`;
 ---
