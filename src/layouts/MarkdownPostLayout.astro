@@ -185,6 +185,7 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
 
   .anime-button:before {
     --size: -4px;
+    --duration: 0.5s;
     content: "";
     position: absolute;
     top: var(--size);
@@ -196,11 +197,14 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
     border-radius: calc(var(--size) * -1);
     z-index: -1;
     transform: scale(0, 1);
-    transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
   .twitter::before {
     border-radius: 9999px;
+  }
+  .twitter:hover::before {
+    --duration: 0.25s;
   }
 
   .anime-button:hover::before {
