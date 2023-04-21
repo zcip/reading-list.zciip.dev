@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://zcip-reading-list.netlify.app"
+  to = "https://reading-list.zcip.dev"
+  status = 301
+  force = true
