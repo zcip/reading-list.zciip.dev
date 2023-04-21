@@ -55,7 +55,7 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
       </div>
     )
   }
-  <article class="md-post px-2 border-b">
+  <article class="px-2 border-b">
     <header class="mb-8">
       <h1
         class="text-5xl grid font-extrabold tracking-tighter leading-tight bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500 text-transparent break-words"
@@ -68,7 +68,9 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
         {frontmatter.tags.map((tag) => <Tag tag={tag} />)}
       </ul>
     </header>
-    <slot />
+    <main class="md-post">
+      <slot />
+    </main>
   </article>
   <aside class="my-8 px-2 grid gap-4 grid-cols-12">
     {
