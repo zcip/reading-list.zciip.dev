@@ -6,6 +6,10 @@
   overflow-wrap: break-word;
 }
 
+.md-post > * {
+  margin-bottom: 1rem;
+}
+
 .md-post a {
   color: #00539f;
 }
