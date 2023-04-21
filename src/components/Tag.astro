@@ -4,5 +4,5 @@ const { tag } = Astro.props;
 ---
 
 <li class="block shadow-sm p-2 text-neutral-600 bg-neutral-200 rounded-lg">
-  #{tag}
+  <a href={`/tags/${tag}`}>#{tag}</a>
 </li>

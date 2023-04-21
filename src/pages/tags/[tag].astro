@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPublishedPosts } from "../../lib/getPublishedPosts";
+import { getSortedUniqTag } from "../../lib/getSortedUniqTag";
+import PostCard from "../../components/PostCard.astro";
+
+export async function getStaticPaths() {
+  const publicPosts = await getPublishedPosts();
+  const tags = getSortedUniqTag(publicPosts);
+  return tags.map((tag) => {
+    const filterdPosts = publicPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filterdPosts },
+    };
+  });
+}
+
+type Props = {
+  posts: CollectionEntry<"posts">[];
+};
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout>
+  <h2
+    class="text-5xl font-extrabold tracking-tighter leading-tight p-4 bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent"
+  >
+    #{tag}
+  </h2>
+  <ul>
+    {posts.map((post) => <PostCard post={post} />)}
+  </ul>
+</BaseLayout>
