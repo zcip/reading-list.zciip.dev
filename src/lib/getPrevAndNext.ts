@@ -11,9 +11,7 @@ export async function getPrevAndNext(Astro: Readonly<AstroGlobal>) {
     link: linkToPostPath(post.slug),
   }));
 
-  const index = links.findIndex((x) =>
-    Astro.url.pathname.replace(/\/$/, "").endsWith(x.link)
-  );
+  const index = links.findIndex((x) => Astro.url.pathname.endsWith(x.link));
 
   return {
     previous: index > 0 ? links[index - 1] : undefined,
