@@ -3,6 +3,11 @@
   [headers.values]
     Cache-Control = "public, max-age=604800, immutable"
 
+[[headers]]
+  for = "/favicon.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
 [[redirects]]
   from = "https://zcip-reading-list.netlify.app"
   to = "https://reading-list.zcip.dev"
