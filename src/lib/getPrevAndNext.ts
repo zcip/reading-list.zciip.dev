@@ -1,7 +1,7 @@
 import type { AstroGlobal } from "astro";
 import { getPublishedPosts } from "./getPublishedPosts";
 
-const linkToPostPath = (path: string) => `/posts/${path}`;
+const linkToPostPath = (path: string) => `/posts/${path}/`;
 
 export async function getPrevAndNext(Astro: Readonly<AstroGlobal>) {
   const posts = await getPublishedPosts();
