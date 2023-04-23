@@ -23,6 +23,7 @@
 - [TypeScript](https://www.typescriptlang.org/) – Static type checker for end-to-end typesafety
 - [Prettier](https://prettier.io/) – Opinionated code formatter for consistent code style
 - [ESLint](https://eslint.org/) – Pluggable linter for Next.js and TypeScript
+- [lint-staged](https://github.com/okonet/lint-staged) - A tool that runs linters on files staged for committing in Git.
 
 ## Developments
 
