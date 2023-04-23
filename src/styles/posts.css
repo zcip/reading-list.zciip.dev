@@ -1,9 +1,23 @@
 /* body {
   padding: 0 1rem;
 } */
+:root {
+  --md-link-color: #00539f;
+  --md-base-text-color: #030303;
+  --code-background-color: rgb(229 229 229);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-link-color: #309bff;
+    --md-base-text-color: #e8e8e8;
+    --code-background-color: rgb(64, 64, 64);
+  }
+}
 
 .md-post {
   overflow-wrap: break-word;
+  color: var(--md-base-text-color);
 }
 
 .md-post > * {
@@ -11,7 +25,7 @@
 }
 
 .md-post a {
-  color: #00539f;
+  color: var(--md-link-color);
 }
 
 .md-post p {
@@ -75,7 +89,7 @@
 }
 
 .md-post li code {
-  background-color: rgb(229 229 229);
+  background-color: var(--code-background-color);
   padding: 0.25rem;
   border-radius: 4px;
 }

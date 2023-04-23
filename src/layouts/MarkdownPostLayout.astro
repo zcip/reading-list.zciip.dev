@@ -68,7 +68,9 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
         <span class="italic">{format(frontmatter.pubDate, "Y/M/dd")}</span>
         <span class="break-words">{frontmatter.title}</span>
       </h1>
-      <div class="text-neutral-700 mb-4">{formatedDate}</div>
+      <div class="text-neutral-700 dark:text-neutral-400 mb-4">
+        {formatedDate}
+      </div>
       <ul class="flex gap-1 flex-wrap pb-4 border-b">
         {frontmatter.tags.map((tag) => <Tag tag={tag} />)}
       </ul>
@@ -76,7 +78,7 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
     <main class="md-post">
       <slot />
     </main>
-    <footer class="grid justify-end">
+    <footer class="grid justify-end relative z-0">
       <a
         class="anime-button twitter inline-flex shadow py-2 px-6 border bg-neutral-50 text-neutral-700 rounded-full gap-1 items-center"
         href={tweetUrl}
@@ -106,16 +108,16 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
     </footer>
   </article>
 
-  <aside class="my-8 px-2 grid gap-4 grid-cols-12">
+  <aside class="my-8 px-2 grid gap-4 grid-cols-12 relative z-0">
     {
       previous && (
         <a
-          class="anime-button py-3 px-1 shadow rounded-lg col-span-12 sm:col-span-5 text-center grid place-content-center grid-cols-12 items-center"
+          class="anime-button py-3 px-1 shadow rounded-lg col-span-12 sm:col-span-5 text-center grid place-content-center grid-cols-12 items-center bg-neutral-50 dark:bg-neutral-800"
           href={previous.link}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-chevron-left col-span-1"
+            class="icon icon-tabler icon-tabler-chevron-left col-span-1 dark:stroke-neutral-200"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -129,10 +131,12 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
             <path d="M15 6l-6 6l6 6" />
           </svg>
           <div class="col-span-10 sm:col-span-11 px-2">
-            <div class="text-sm text-neutral-500">
+            <div class="text-sm text-neutral-500 dark:text-neutral-400">
               {format(previous.pubDate, "yyyy/MM/dd")}
             </div>
-            <div class="text-sm text-neutral-900">{previous.text}</div>
+            <div class="text-sm text-neutral-900 dark:text-neutral-300">
+              {previous.text}
+            </div>
           </div>
         </a>
       )
@@ -140,18 +144,20 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
     {
       next && (
         <a
-          class="anime-button py-3 shadow rounded-lg col-span-12 sm:col-start-8 sm:col-span-5 text-center grid place-content-center grid-cols-12 items-center"
+          class="anime-button py-3 shadow rounded-lg col-span-12 sm:col-start-8 sm:col-span-5 text-center grid place-content-center grid-cols-12 items-center bg-neutral-50 dark:bg-neutral-800"
           href={next.link}
         >
           <div class="px-2 col-start-2 col-span-10 sm:col-span-11">
-            <div class="text-sm text-neutral-500">
+            <div class="text-sm text-neutral-500 dark:text-neutral-400">
               {format(next.pubDate, "yyyy/MM/dd")}
             </div>
-            <div class="text-sm text-neutral-900">{next.text}</div>
+            <div class="text-sm text-neutral-900 dark:text-neutral-300">
+              {next.text}
+            </div>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-chevron-right col-span-1"
+            class="icon icon-tabler icon-tabler-chevron-right col-span-1 dark:stroke-neutral-200"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -169,9 +175,9 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
     }
     <a
       href="/"
-      class="anime-button shadow rounded-lg py-3 col-start-5 col-span-4 text-center"
+      class="anime-button shadow rounded-lg py-3 col-start-5 col-span-4 text-center bg-neutral-50 dark:bg-neutral-800"
     >
-      <span class="px-2 text-sm">一覧へ</span>
+      <span class="px-2 text-sm dark:text-neutral-300">一覧へ</span>
     </a>
   </aside>
 </BaseLayout>
@@ -181,7 +187,6 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
     border: solid 2px transparent;
     background-clip: padding-box;
     position: relative;
-    background-color: white;
   }
 
   .anime-button:before {
