@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import TitleSvg from "../components/TitleIcon.astro";
 import DevInfo from "../components/DevInfo.astro";
 
 const pageTitle = "zcip's Reading List";
@@ -39,15 +39,7 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
     </slot>
   </head>
   <body>
-    <header
-      class="py-20 bg-gradient-to-r from-pink-300 to-blue-500 bg-clip-padding fill-transparent"
-    >
-      <div class="pt-4 sm:flex sm:items-center sm:justify-center">
-        <a href="/" aria-label={pageTitle}>
-          <TitleSvg class="max-w-full h-full" scale={6} />
-        </a>
-      </div>
-    </header>
+    <Header title={pageTitle} />
     <main class="mx-auto max-w-4xl pb-4 px-2">
       <slot />
     </main>
