@@ -8,11 +8,11 @@
 
 ### Frameworks
 
-- [Astro](https://astro.build/) Astro is the all-in-one web framework designed for speed. Pull your content from anywhere and deploy everywhere, all powered by your favorite UI components and libraries.
+- [Astro](https://astro.build/) A modern web development platform for building fast, scalable, and modern static websites
 
 ### Platforms
 
-- [Netlify](https://www.netlify.com/)
+- [Netlify](https://www.netlify.com/) All-in-one platform for automating modern web projects
 
 ### UI
 
@@ -23,3 +23,9 @@
 - [TypeScript](https://www.typescriptlang.org/) – Static type checker for end-to-end typesafety
 - [Prettier](https://prettier.io/) – Opinionated code formatter for consistent code style
 - [ESLint](https://eslint.org/) – Pluggable linter for Next.js and TypeScript
+
+## Developments
+
+1. Clone the repository.
+2. Install dependencies with `npm install`.
+3. Start the development server with `npm run dev`.
