@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reading-list.zcip.dev/sitemap-index.xml
