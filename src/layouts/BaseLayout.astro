@@ -29,14 +29,13 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <meta name="Hatena::Bookmark" content="nocomment" />
     <slot name="og:twitter">
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@zcip" />
     </slot>
     <slot name="seo">
+      <link rel="canonical" href={canonicalURL} />
+      <title>{pageTitle}</title>
       <meta property="og:title" content={pageTitle} />
       <meta property="og:type" content="article" />
       <meta property="og:url" content={canonicalURL} />
@@ -48,6 +47,8 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
       />
       <meta property="og:site_name" content={pageTitle} />
     </slot>
+    <meta name="Hatena::Bookmark" content="nocomment" />
+    <meta name="generator" content={Astro.generator} />
   </head>
   <body>
     <Header title={pageTitle} />
