@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "eslint": "eslint . --fix",
-    "fmt": "prettier --write . --cache"
+    "fmt": "prettier --write . --cache",
+    "prepare": "git config --local core.hooksPath .githooks"
   },
   "dependencies": {
     "@astrojs/rss": "^2.3.2",
