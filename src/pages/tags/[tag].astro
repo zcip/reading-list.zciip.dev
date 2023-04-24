@@ -33,7 +33,7 @@ const { posts } = Astro.props;
   >
     #{tag}
   </h2>
-  <ul>
+  <ul class="flex flex-col gap-4">
     {posts.map((post) => <PostCard post={post} />)}
   </ul>
 </BaseLayout>
