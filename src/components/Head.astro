@@ -1,0 +1,48 @@
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#391a59" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<slot name="og:twitter">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@zcip" />
+</slot>
+
+<script is:inline>
+  const root = document.documentElement;
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+  if (theme === "light") {
+    root.classList.remove("theme-dark");
+  } else {
+    root.classList.add("theme-dark");
+  }
+</script>
+
+<style>
+  @media (prefers-color-scheme: dark) {
+    body,
+    html {
+      background-color: #191919;
+    }
+  }
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VM05Y6FDCY"
+></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-VM05Y6FDCY");
+</script>

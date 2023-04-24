@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import DevInfo from "../components/DevInfo.astro";
@@ -15,24 +16,7 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
 
 <html lang="ja">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VM05Y6FDCY"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-VM05Y6FDCY");
-    </script>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <slot name="og:twitter">
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@zcip" />
-    </slot>
+    <Head />
     <slot name="seo">
       <link rel="canonical" href={canonicalURL} />
       <title>{pageTitle}</title>
@@ -47,17 +31,8 @@ const canonicalImageSrc = new URL(ogImageSrcPath, Astro.site);
       />
       <meta property="og:site_name" content={pageTitle} />
     </slot>
-    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="Hatena::Bookmark" content="nocomment" />
     <meta name="generator" content={Astro.generator} />
-    <style>
-      @media (prefers-color-scheme: dark) {
-        body,
-        html {
-          background-color: #191919;
-        }
-      }
-    </style>
   </head>
   <body>
     <Header title={pageTitle} />
