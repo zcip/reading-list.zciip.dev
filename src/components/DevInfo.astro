@@ -15,7 +15,7 @@ const siteUrl = new URL(Astro.url.pathname, Astro.site);
       }}
     >
       <a href={siteUrl} target="_blank">
-        {siteUrl}
+        {decodeURI(siteUrl.toString())}
       </a>
     </div>
   )
