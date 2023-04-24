@@ -1,20 +1,10 @@
-*,
-::before,
-::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-  padding: 0;
+:root {
+  --button-transition-duration: 0.5s;
 }
 
 html {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-
-  /* TODO: font */
-  font-family: sans-serif;
   line-height: 1.15;
 }
 
@@ -22,15 +12,6 @@ body {
   width: 100%;
   min-height: 100vh;
   background: #f9f9f9;
-}
-
-:root {
-  --main-width: 72rem;
-}
-
-h1 {
-  margin: 1rem 0;
-  font-size: 2rem;
 }
 
 @keyframes bg-position-lrl {
@@ -43,4 +24,32 @@ h1 {
   100% {
     background-position: 0% 50%;
   }
+}
+
+.gradient-button {
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.gradient-button:before {
+  --size: -4px;
+  content: "";
+  position: absolute;
+  top: var(--size);
+  left: var(--size);
+  right: var(--size);
+  bottom: var(--size);
+  background-image: linear-gradient(to right, #ec4899, #3b82f6);
+  background-size: 200% 200%;
+  border-radius: calc(var(--size) * -1);
+  transform: scale(0, 1);
+  transition: transform var(--button-transition-duration)
+    cubic-bezier(0.645, 0.045, 0.355, 1);
+  z-index: -1;
+}
+
+.gradient-button:hover::before {
+  animation: bg-position-lrl 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  transform: scale(1, 1);
 }

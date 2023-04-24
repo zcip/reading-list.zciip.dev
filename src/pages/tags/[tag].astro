@@ -36,4 +36,12 @@ const { posts } = Astro.props;
   <ul class="flex flex-col gap-4">
     {posts.map((post) => <PostCard post={post} />)}
   </ul>
+  <div class="my-8 px-2 grid gap-4 grid-cols-12 relative z-0">
+    <a
+      href="/"
+      class="gradient-button shadow rounded-lg py-3 col-start-5 col-span-4 text-center bg-neutral-50 dark:bg-neutral-800"
+    >
+      <span class="px-2 text-sm dark:text-neutral-300">一覧へ</span>
+    </a>
+  </div>
 </BaseLayout>

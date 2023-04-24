@@ -80,14 +80,14 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
     </main>
     <footer class="grid justify-end relative z-0">
       <a
-        class="anime-button twitter inline-flex shadow py-2 px-6 border bg-neutral-50 text-neutral-700 rounded-full gap-1 items-center"
+        class="gradient-button twitter inline-flex shadow py-2 px-6 border bg-neutral-50 text-neutral-700 rounded-full gap-1 items-center"
         href={tweetUrl}
         target="_blank"
         rel="nofollow noopener noreferer"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-brand-twitter-filled anime-button"
+          class="icon icon-tabler icon-tabler-brand-twitter-filled gradient-button"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -112,7 +112,7 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
     {
       previous && (
         <a
-          class="anime-button py-3 px-1 shadow rounded-lg col-span-12 sm:col-span-5 text-center grid place-content-center grid-cols-12 items-center bg-neutral-50 dark:bg-neutral-800"
+          class="gradient-button py-3 px-1 shadow rounded-lg col-span-12 sm:col-span-5 text-center grid place-content-center grid-cols-12 items-center bg-neutral-50 dark:bg-neutral-800"
           href={previous.link}
         >
           <svg
@@ -144,7 +144,7 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
     {
       next && (
         <a
-          class="anime-button py-3 shadow rounded-lg col-span-12 sm:col-start-8 sm:col-span-5 text-center grid place-content-center grid-cols-12 items-center bg-neutral-50 dark:bg-neutral-800"
+          class="gradient-button py-3 shadow rounded-lg col-span-12 sm:col-start-8 sm:col-span-5 text-center grid place-content-center grid-cols-12 items-center bg-neutral-50 dark:bg-neutral-800"
           href={next.link}
         >
           <div class="px-2 col-start-2 col-span-10 sm:col-span-11">
@@ -175,7 +175,7 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
     }
     <a
       href="/"
-      class="anime-button shadow rounded-lg py-3 col-start-5 col-span-4 text-center bg-neutral-50 dark:bg-neutral-800"
+      class="gradient-button shadow rounded-lg py-3 col-start-5 col-span-4 text-center bg-neutral-50 dark:bg-neutral-800"
     >
       <span class="px-2 text-sm dark:text-neutral-300">一覧へ</span>
     </a>
@@ -183,38 +183,8 @@ const tweetUrl = `https://twitter.com/intent/tweet?url=${canonicalURL}&text=${en
 </BaseLayout>
 
 <style>
-  .anime-button {
-    border: solid 2px transparent;
-    background-clip: padding-box;
-    position: relative;
-  }
-
-  .anime-button:before {
-    --size: -4px;
-    --duration: 0.5s;
-    content: "";
-    position: absolute;
-    top: var(--size);
-    left: var(--size);
-    right: var(--size);
-    bottom: var(--size);
-    background-image: linear-gradient(to right, #ec4899, #3b82f6);
-    background-size: 200% 200%;
-    border-radius: calc(var(--size) * -1);
-    z-index: -1;
-    transform: scale(0, 1);
-    transition: transform var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1);
-  }
-
   .twitter::before {
+    --button-transition-duration: 0.25s;
     border-radius: 9999px;
-  }
-  .twitter:hover::before {
-    --duration: 0.25s;
-  }
-
-  .anime-button:hover::before {
-    animation: bg-position-lrl 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-    transform: scale(1, 1);
   }
 </style>
