@@ -1,4 +1,5 @@
 ---
+import ToggleTheme from "./ToggleTheme.astro";
 import TitleIcon from "./TitleIcon.astro";
 ---
 
@@ -11,10 +12,13 @@ import TitleIcon from "./TitleIcon.astro";
 <footer class="sticky top-full dark:bg-neutral-900">
   <div class="max-w-4xl mx-auto py-4 px-2">
     <div class="grid sm:grid-cols-12 gap-8 border-t border-neutral-200 py-8">
-      <div class="sm:col-span-12 md:col-span-6">
+      <div class="sm:col-span-12 md:col-span-6 flex gap-6 flex-col">
         <a href="/" aria-label="zcip's reading list">
           <TitleIcon scale={2} class="dark:fill-white" />
         </a>
+        <div>
+          <ToggleTheme />
+        </div>
       </div>
       <div class="footer-links sm:col-span-6 md:col-span-3 lg:col-span-2">
         <p class="mb-2 font-medium text-neutral-600 dark:text-neutral-100">

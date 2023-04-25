@@ -20,19 +20,12 @@
     }
     return "light";
   })();
-  if (theme === "light") {
-    root.classList.remove("theme-dark");
-  } else {
-    root.classList.add("theme-dark");
-  }
+  root.classList.add(theme);
 </script>
 
 <style>
-  @media (prefers-color-scheme: dark) {
-    body,
-    html {
-      background-color: #191919;
-    }
+  html.dark body {
+    background-color: #191919;
   }
 </style>
 
