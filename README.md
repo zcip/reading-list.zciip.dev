@@ -25,6 +25,15 @@
 - [ESLint](https://eslint.org/) – Pluggable linter for Next.js and TypeScript
 - [lint-staged](https://github.com/okonet/lint-staged) - A tool that runs linters on files staged for committing in Git.
 
+## Screenshot
+
+- Responsive Design
+- Dark Mode
+
+<div align="center">
+  <img src="media/screen1.jpg" alt="zcip's reading list" />
+</div>
+
 ## Developments
 
 1. Clone the repository.
