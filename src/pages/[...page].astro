@@ -1,0 +1,91 @@
+---
+import type { GetStaticPathsOptions, Page } from "astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPublishedPosts } from "../lib/getPublishedPosts";
+import Tag from "../components/Tag.astro";
+import { getSortedUniqTag } from "../lib/getSortedUniqTag";
+import PostCard from "../components/PostCard.astro";
+import type { CollectionEntry } from "astro:content";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const publicPosts = await getPublishedPosts();
+  return paginate(publicPosts, { pageSize: 10 });
+}
+
+export type Props = { page: Page<CollectionEntry<"posts">> };
+const { page } = Astro.props;
+
+const publicPosts = await getPublishedPosts();
+const tags = getSortedUniqTag(publicPosts);
+const user = "zcip";
+---
+
+<BaseLayout>
+  <section class="py-4">
+    <ul class="flex flex-col gap-4">
+      {page.data.map((post) => <PostCard post={post} />)}
+    </ul>
+    <div class="grid grid-cols-12 py-8">
+      {
+        page.url.prev && (
+          <a
+            href={page.url.prev}
+            class="gradient-button px-2 py-3 rounded-lg bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-300 shadow col-span-5 sm:col-span-3 text-start inline-flex"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-chevron-left col-span-1 dark:stroke-neutral-200"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M15 6l-6 6l6 6" />
+            </svg>
+            <span>Prev</span>
+          </a>
+        )
+      }
+      {
+        page.url.next && (
+          <a
+            href={page.url.next}
+            class="gradient-button col-span-5 sm:col-span-3 col-end-13 sm:col-end-13 text-end inline-flex justify-end bg-neutral-50 dark:bg-neutral-800 dark:text-neutral-300 py-3 px-2 shadow rounded-lg"
+          >
+            Next
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-chevron-right col-span-1 dark:stroke-neutral-200"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M9 6l6 6l-6 6" />
+            </svg>
+          </a>
+        )
+      }
+    </div>
+    <aside
+      class="bg-neutral-100 p-12 rounded-lg border-transparent border shadow-lg dark:bg-neutral-800"
+    >
+      <p class="pb-8 text-neutral-950 dark:text-neutral-300">
+        {user} が興味を持ったWeb全般の読んだ記事について個人的にまとめています
+      </p>
+      <ul class="flex gap-1 flex-wrap">
+        {tags.map((tag) => <Tag tag={tag} />)}
+      </ul>
+    </aside>
+  </section>
+</BaseLayout>
