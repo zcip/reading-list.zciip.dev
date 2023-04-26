@@ -14,4 +14,7 @@ export default defineConfig({
       wrap: true,
     },
   },
+  experimental: {
+    assets: true,
+  },
 });
