@@ -1,3 +1,7 @@
+---
+import LogoSvg from "../assets/images/logo.svg";
+---
+
 <meta charset="utf-8" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="viewport" content="width=device-width" />
@@ -8,6 +12,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@zcip" />
 </slot>
+
+<link rel="preload" href={LogoSvg.src} as="image" type="image/svg+xml" />
 
 <script is:inline>
   const root = document.documentElement;
