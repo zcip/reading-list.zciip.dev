@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import cat from "../assets/images/cat.webp";
 ---
 
 <BaseLayout>
@@ -7,4 +8,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     404 - 残念ながらページが見つからないようです
   </h1>
   <a href="/" class="text-3xl dark:text-neutral-50">← Homeへ戻る</a>
+  <div class="pt-12">
+    <img
+      src={cat.src}
+      width={cat.width}
+      height={cat.height}
+      alt="猫のかわいい写真"
+      class="rounded-lg"
+    />
+    <div class="text-neutral-600 dark:text-neutral-500 text-end">
+      <a
+        href="https://unsplash.com/ja/%E5%86%99%E7%9C%9F/gKXKBY-C-Dk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        >Unsplash</a
+      >の<a
+        href="https://unsplash.com/@madhatterzone?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        >Manja Vitolic</a
+      >が撮影した写真
+    </div>
+  </div>
 </BaseLayout>
