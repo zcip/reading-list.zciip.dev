@@ -18,11 +18,18 @@
 
 - [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework for rapid UI development
 
+### Performance
+
+- [Partytown](https://partytown.builder.io/) A lazy-loaded library to help relocate resource-intensive scripts into a web worker, and off of the main thread.
+
 ### Code Quality
 
 - [TypeScript](https://www.typescriptlang.org/) – Static type checker for end-to-end typesafety
 - [Prettier](https://prettier.io/) – Opinionated code formatter for consistent code style
 - [ESLint](https://eslint.org/) – Pluggable linter for Next.js and TypeScript
+
+### Other
+
 - [lint-staged](https://github.com/okonet/lint-staged) - A tool that runs linters on files staged for committing in Git.
 
 ## Screenshot
