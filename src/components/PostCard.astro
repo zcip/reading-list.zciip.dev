@@ -24,7 +24,7 @@ const { post } = Astro.props;
   <div class="text-neutral-900 dark:text-neutral-300 line-clamp-2">
     {post.data.description}
   </div>
-  <ul class="flex gap-2">
+  <ul class="flex gap-2 flex-wrap">
     {post.data.tags.map((tag) => <Tag tag={tag} />)}
   </ul>
 </li>
