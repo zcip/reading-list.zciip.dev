@@ -34,11 +34,19 @@
 
 ## Screenshot
 
+### Design
+
 - Responsive Design
 - Dark Mode
 
 <div align="center">
   <img src="media/screen1.jpg" alt="zcip's reading list" />
+</div>
+
+### Lighthouse
+
+<div align="center">
+  <img src="media/lighthouse.png" alt="zcip's reading list" />
 </div>
 
 ## Developments
