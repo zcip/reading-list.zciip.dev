@@ -1,8 +1,15 @@
 // @ts-check
 import fs from "node:fs/promises";
-import { format } from "date-fns";
+import { addDays, format, setDay, startOfDay } from "date-fns";
 
-const dateStr = format(new Date(), "yyyy-MM-dd");
+function getNextTuesday(date = new Date()) {
+  // 次の週の初めの日付を取得
+  const nextWeek = addDays(startOfDay(date), 7);
+  // 2は火曜日を表す
+  return setDay(nextWeek, 2);
+}
+
+const dateStr = format(getNextTuesday(), "yyyy-MM-dd");
 
 const template = `---
 isDraft: true
