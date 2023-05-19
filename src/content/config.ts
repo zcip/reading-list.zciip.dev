@@ -4,6 +4,7 @@
 import { defineCollection, z } from "astro:content";
 
 const postsCollection = defineCollection({
+  type: "content",
   schema: z.object({
     isDraft: z.boolean(),
     title: z.string(),
