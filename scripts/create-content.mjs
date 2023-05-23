@@ -9,9 +9,10 @@ function getNextTuesday(date = new Date()) {
   return setDay(nextWeek, 2);
 }
 
-const dateStr = format(getNextTuesday(), "yyyy-MM-dd");
+async function main() {
+  const dateStr = format(getNextTuesday(), "yyyy-MM-dd");
 
-const template = `---
+  const template = `---
 isDraft: true
 title: TODO
 slug: "${dateStr}"
@@ -27,9 +28,17 @@ tags: ["web"]
 
 `;
 
-fs.writeFile(`src/content/posts/${dateStr}.md`, template, {
-  encoding: "utf-8",
-  flag: "wx", // 存在する場合上書きしない
-}).catch((error) => {
-  console.log(error.message);
-});
+  const filePath = `src/content/posts/${dateStr}.md`;
+
+  try {
+    await fs.writeFile(filePath, template, {
+      encoding: "utf-8",
+      flag: "wx", // 存在する場合上書きしない
+    });
+    console.log("⚡️ ", filePath);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+main();
