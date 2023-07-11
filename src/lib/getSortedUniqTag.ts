@@ -6,7 +6,7 @@ export function getSortedUniqTag(posts: CollectionEntry<"posts">[]) {
     allTags.reduce((count: { [key: string]: number }, item: string) => {
       count[item] = (count[item] || 0) + 1;
       return count;
-    }, {})
+    }, {}),
   )
     .sort((a, b) => b[1] - a[1])
     .map(([item, _]) => item);
