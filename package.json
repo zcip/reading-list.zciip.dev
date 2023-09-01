@@ -14,23 +14,23 @@
     "prepare": "git config --local core.hooksPath .githooks"
   },
   "dependencies": {
-    "@astrojs/partytown": "^1.2.2",
-    "@astrojs/rss": "^2.4.2",
-    "@astrojs/sitemap": "^2.0.0",
-    "@astrojs/tailwind": "^4.0.0",
-    "astro": "^2.5.0",
+    "@astrojs/partytown": "^2.0.0",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "astro": "^3.0.5",
     "date-fns": "^2.30.0",
-    "tailwindcss": "^3.3.2"
+    "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
     "@types/gtag.js": "^0.0.13",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "eslint": "^8.40.0",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0",
+    "eslint": "^8.48.0",
     "eslint-plugin-astro": "^0.29.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "lint-staged": "^14.0.0",
-    "prettier": "^3.0.0",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0"
   }
 }
