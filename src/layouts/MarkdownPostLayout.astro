@@ -1,14 +1,13 @@
 ---
+import type { MarkdownLayoutProps } from "astro";
+import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import { format } from "date-fns";
 import { getPrevAndNext } from "../lib/getPrevAndNext";
-import type { CollectionEntry } from "astro:content";
 import "../styles/posts.css";
 import Tag from "../components/Tag.astro";
 
-export type Props = {
-  frontmatter: CollectionEntry<"posts">["data"];
-};
+export type Props = MarkdownLayoutProps<CollectionEntry<"posts">["data"]>;
 
 const { previous, next } = await getPrevAndNext(Astro);
 
