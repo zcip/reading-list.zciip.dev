@@ -15,7 +15,6 @@ async function main() {
   const template = `---
 isDraft: true
 title: TODO
-slug: "${dateStr}"
 description: TODO
 pubDate: ${dateStr}
 tags: ["web"]
